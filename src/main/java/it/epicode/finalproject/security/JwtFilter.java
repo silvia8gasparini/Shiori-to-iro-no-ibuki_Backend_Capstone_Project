@@ -1,4 +1,4 @@
-package it.epicode.finalproject.security;
+package org.example.security;
 
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.exception.UnAuthorizedException;
@@ -20,7 +20,6 @@ import java.util.Arrays;
 
 
 @Component
-
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -35,38 +34,22 @@ public class JwtFilter extends OncePerRequestFilter {
         if (authorization == null || !authorization.startsWith("Bearer ")) {
             throw new UnAuthorizedException("Token non presente, non sei autorizzato ad usare il servizio richiesto");
         } else {
-            //estraggo il token
             String token = authorization.substring(7);
-
-            //verifico che il token sia valido
             jwtTool.validateToken(token);
 
             try {
-                //recupero l'utente collegato al token usando il metodo getUserFromToken del jwtTool
                 User user = jwtTool.getUserFromToken(token);
-
-                //creo un oggetto authentication inserendogli all'interno l'utente recuperato e il suo ruolo
                 Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-                //aggiungo l'autenticazione con l'utente nel contesto di Spring security
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             } catch (NotFoundException e) {
                 throw new UnAuthorizedException("Utente collegato al token non trovato");
             }
-
 
             filterChain.doFilter(request, response);
         }
 
     }
 
-    //questo metodo evita che gli endpoint di registrazione e login possano richiedere il token
-    /*
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return new AntPathMatcher().match("/auth/**", request.getServletPath());
-    } */
-
-    //ho cambiato il metodo shouldNotFilter per ospitare più path da non filtrare
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String[] excludedEndpoints = new String[]{"/auth/**", "/html/**"};

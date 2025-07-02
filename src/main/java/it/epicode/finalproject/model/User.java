@@ -16,8 +16,8 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue
     private int id;
-    private String nome;
-    private String cognome;
+    private String name;
+    private String surname;
 
     @Column(unique = true)
     private String email;
@@ -47,7 +47,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.email; // usa email come username
+        return this.email;
     }
 
     @Override public boolean isAccountNonExpired() { return true; }

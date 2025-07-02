@@ -4,6 +4,7 @@ package it.epicode.finalproject.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,13 +15,15 @@ public class DigitalCard {
     @GeneratedValue
     private int id;
 
+    private String cardNumber;
+    private LocalDate issuedAt;
+
     @OneToOne
     private User user;
 
-    @OneToMany(mappedBy = "cart")
-    private List<CartItem> items;
+    @OneToMany(mappedBy = "digitalCard")
+    private List<Reservation> reservations;
 
-    private LocalDateTime lastUpdated;
-
-    private boolean checkedOut = false;
+    @OneToMany(mappedBy = "digitalCard")
+    private List<Borrow> borrows;
 }
