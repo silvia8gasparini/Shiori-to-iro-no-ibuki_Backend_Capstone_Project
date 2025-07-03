@@ -1,5 +1,6 @@
 package it.epicode.finalproject.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -11,41 +12,37 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+    @Autowired
+    private JwtFilter jwtFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        //formLogin serve per creare in automatico una pagina di login. A noi non serve,perchè non usiamo pagine
-        httpSecurity.formLogin(http->http.disable());
-        //csrf serve per evitare la possibilità di utilizzi di sessioni aperte, ma i rest non usano sessioni e quindi disable
-        httpSecurity.csrf(http->http.disable());
-        httpSecurity.sessionManagement(http->http.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        //serve per bloccare richieste che provengono da domini(indirizzo ip e porta) esterni a quelli del servizio
-        httpSecurity.cors(Customizer.withDefaults());
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(csrf -> csrf.disable()) // Non serve con le API stateless
+                .formLogin(form -> form.disable()) // Disattiva il form HTML di login
+                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .cors(Customizer.withDefaults()) // Per gestire richieste da frontend separato
 
-        httpSecurity.authorizeHttpRequests(http->http.requestMatchers("/auth/**").permitAll());
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/import/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/books/**", "/microseasons/**", "/colors/**").permitAll()
+                        .anyRequest().authenticated()
+                )
 
-        httpSecurity.authorizeHttpRequests(http->http.requestMatchers("/import/**").permitAll());
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
-        httpSecurity.authorizeHttpRequests(http->http.requestMatchers(HttpMethod.GET).permitAll());
-        httpSecurity.authorizeHttpRequests(http->http.requestMatchers(HttpMethod.POST).permitAll());
-        httpSecurity.authorizeHttpRequests(http->http.requestMatchers(HttpMethod.PUT).permitAll());
-        httpSecurity.authorizeHttpRequests(http->http.requestMatchers(HttpMethod.DELETE).permitAll());
-        httpSecurity.authorizeHttpRequests(http->http.requestMatchers(HttpMethod.PATCH).permitAll());
-
-
-        httpSecurity.authorizeHttpRequests(http->http.anyRequest().denyAll());
-
-
-        return httpSecurity.build();
+        return http.build();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);
     }
 }

@@ -1,4 +1,4 @@
-package org.example.security;
+package it.epicode.finalproject.security;
 
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.exception.UnAuthorizedException;
