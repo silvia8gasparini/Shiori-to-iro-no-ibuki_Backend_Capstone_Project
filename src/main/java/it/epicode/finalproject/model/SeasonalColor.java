@@ -9,9 +9,8 @@ public class SeasonalColor {
     @Id
     @GeneratedValue
     private int id;
-
-    private String nameJapanese;
-    private String nameItalian;
+    private String japaneseName;
+    private String italianName;
     private String rgb;
     private String imageUrl;
 

@@ -11,16 +11,12 @@ public class MicroSeason {
     @Id
     @GeneratedValue
     private int id;
-
-    private String nameJapanese;
-    private String nameItalian;
-
+    private String japaneseName;
+    private String italianName;
 
     @OneToOne(mappedBy = "microSeason")
     private SeasonalColor seasonalColor;
 
     @OneToMany(mappedBy = "microSeason")
     private List<Book> books;
-
-
 }

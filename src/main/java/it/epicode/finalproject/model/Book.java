@@ -27,13 +27,16 @@ public class Book {
     private Availability availability;
 
     @ManyToOne
+    @JoinColumn(name = "seasonal_color_id")
     private SeasonalColor seasonalColor;
+
+    @ManyToOne
+    @JoinColumn(name = "micro_season_id")
+    private MicroSeason microSeason;
 
     @OneToMany(mappedBy = "book")
     private List<Borrow> borrows = new ArrayList<>();
 
     @OneToMany(mappedBy = "book")
     private List<Purchase> purchases = new ArrayList<>();
-
-
 }
