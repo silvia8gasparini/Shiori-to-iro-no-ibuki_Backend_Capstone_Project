@@ -21,6 +21,12 @@ public class Reservation {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private DigitalCard digitalCard;
+
+    @ManyToOne
+    private TeaRoomZone tearoomZone;
+
     private boolean confirmed = false;
     private boolean cancelled = false;
 }
