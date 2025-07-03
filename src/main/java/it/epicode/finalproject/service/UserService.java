@@ -2,6 +2,7 @@ package it.epicode.finalproject.service;
 
 import com.cloudinary.Cloudinary;
 import it.epicode.finalproject.dto.UserDto;
+import it.epicode.finalproject.dto.UserRegistrationDto;
 import it.epicode.finalproject.enumeration.Role;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.User;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,16 +34,26 @@ public class UserService {
     private Cloudinary cloudinary;
 
     @Autowired
-    private MailService mailService;
+    private EmailService mailService;
 
-    public User saveUser(UserDto userDto) {
+    public User saveUser(UserRegistrationDto userRegistrationDto) {
+        User user = new User();
+        user.setName(userRegistrationDto.getName());
+        user.setSurname(userRegistrationDto.getSurname());
+        user.setEmail(userRegistrationDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
+        user.setRole(Role.USER); // il ruolo lo assegni tu
+        return userRepository.save(user);
+    }
+
+    public User createUserByAdmin(UserDto userDto) {
         User user = new User();
         user.setName(userDto.getName());
         user.setSurname(userDto.getSurname());
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setRole(Role.USER);
-
+        user.setAvatarUrl(userDto.getAvatarUrl());
+        user.setRole(userDto.getRole());
         return userRepository.save(user);
     }
 
