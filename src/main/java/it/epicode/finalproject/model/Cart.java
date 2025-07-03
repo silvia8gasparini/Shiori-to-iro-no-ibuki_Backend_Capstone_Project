@@ -13,7 +13,8 @@ public class Cart {
     @GeneratedValue
     private int id;
 
-    @OneToMany
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "cart")
