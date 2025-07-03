@@ -30,12 +30,8 @@ public class MicroSeasonService {
         return microSeasonRepository.findAll(pageable);
     }
 
-    public List<MicroSeason> getByDate(LocalDate date) {
-        return microSeasonRepository.findByStartDateBeforeAndEndDateAfter(date, date);
-    }
-
     public List<MicroSeason> searchByName(String name) {
-        return microSeasonRepository.findByNameContainingIgnoreCase(name);
+        return microSeasonRepository.findByItalianNameContainingIgnoreCase(name);
     }
 
     public List<MicroSeason> getDemoSeasons() {

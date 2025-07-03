@@ -22,8 +22,11 @@ import java.util.Arrays;
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private JwtTool jwtTool;
+    private final JwtTool jwtTool;
+
+    public JwtFilter(JwtTool jwtTool) {
+        this.jwtTool = jwtTool;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

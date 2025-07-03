@@ -10,8 +10,11 @@ import it.epicode.finalproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 
+@Service
 public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;

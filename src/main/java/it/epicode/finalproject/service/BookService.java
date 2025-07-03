@@ -8,7 +8,9 @@ import it.epicode.finalproject.repository.MicroSeasonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BookService {
     @Autowired
     private BookRepository bookRepository;

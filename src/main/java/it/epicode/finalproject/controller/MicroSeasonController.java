@@ -40,11 +40,6 @@ public class MicroSeasonController {
         return microSeasonService.searchByName(name);
     }
 
-    @GetMapping("/by-date")
-    public List<MicroSeason> getByDate(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        return microSeasonService.getByDate(date);
-    }
-
     @GetMapping("/demo")
     public List<MicroSeason> getDemoSeasons() {
         return microSeasonService.getDemoSeasons();
