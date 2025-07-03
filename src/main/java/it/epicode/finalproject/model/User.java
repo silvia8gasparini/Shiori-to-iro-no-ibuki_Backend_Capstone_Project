@@ -12,6 +12,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "app_user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue
