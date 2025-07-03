@@ -21,5 +21,6 @@ public class CartItem {
 
     private int quantity = 1;
 
-    private double princeAtSelection;
+    private double priceAtSelection;
+    // private double princeAtSelection; 🎶Purple rain... purple rain...☔️🎶
 }

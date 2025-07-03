@@ -13,7 +13,7 @@ public class Purchase {
     @Id
     @GeneratedValue
     private int id;
-    private LocalDateTime dataAcquisto;
+    private LocalDateTime purchaseDate;
     private double total;
 
     @ManyToOne
