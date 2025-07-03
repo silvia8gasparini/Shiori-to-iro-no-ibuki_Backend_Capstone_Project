@@ -15,8 +15,8 @@ public class CustomizedExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiError notFoundExceptionHandler(NotFoundException e){
         ApiError error = new ApiError();
-        error.setMessaggio(e.getMessage());
-        error.setDataErrore(LocalDateTime.now());
+        error.setMessage(e.getMessage());
+        error.setDateError(LocalDateTime.now());
         return error;
     }
 
@@ -24,8 +24,18 @@ public class CustomizedExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiError validationExceptionHandler(ValidationException e){
         ApiError error = new ApiError();
-        error.setMessaggio(e.getMessage());
-        error.setDataErrore(LocalDateTime.now());
+        error.setMessage(e.getMessage());
+        error.setDateError(LocalDateTime.now());
         return error;
     }
+
+    @ExceptionHandler(ImATeapotException.class)
+    @ResponseStatus(HttpStatus.I_AM_A_TEAPOT) // 418
+    public ApiError imATeapotHandler(ImATeapotException e) {
+        ApiError error = new ApiError();
+        error.setMessage(e.getMessage());
+        error.setDateError(LocalDateTime.now());
+        return error;
+    }
+
 }
