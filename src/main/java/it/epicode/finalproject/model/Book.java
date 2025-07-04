@@ -1,5 +1,6 @@
 package it.epicode.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.epicode.finalproject.enumeration.Availability;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -20,8 +21,9 @@ public class Book {
     private String publisher;
     private String isbn;
     private double price;
-    private String imageUrl;
+    @Column(length = 2000)
     private String description;
+    private String imageUrl;
 
     @Enumerated
     private Availability availability;
@@ -34,9 +36,11 @@ public class Book {
     @JoinColumn(name = "micro_season_id")
     private MicroSeason microSeason;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "book")
     private List<Borrow> borrows = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "book")
     private List<Purchase> purchases = new ArrayList<>();
 }

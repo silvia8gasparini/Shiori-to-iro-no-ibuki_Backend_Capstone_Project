@@ -1,5 +1,6 @@
 package it.epicode.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class MicroSeason {
     @OneToOne(mappedBy = "microSeason")
     private SeasonalColor seasonalColor;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "microSeason")
     private List<Book> books;
 
