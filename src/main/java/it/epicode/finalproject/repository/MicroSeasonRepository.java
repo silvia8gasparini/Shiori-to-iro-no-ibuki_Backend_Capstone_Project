@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface MicroSeasonRepository extends JpaRepository<MicroSeason, Integer> {
-    // Trova per nome (ignorando maiuscole/minuscole)
+    List<MicroSeason> findByStartDateBeforeAndEndDateAfter(LocalDate after, LocalDate before);
     List<MicroSeason> findByItalianNameContainingIgnoreCase(String name);
+
 }

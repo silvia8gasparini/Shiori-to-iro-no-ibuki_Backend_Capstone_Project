@@ -2,7 +2,9 @@ package it.epicode.finalproject.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
+@Data
 public class SeasonalColorDto {
     @NotEmpty(message = "Il nome giapponese è obbligatorio")
     private String japaneseName;

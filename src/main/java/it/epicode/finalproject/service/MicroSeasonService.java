@@ -1,5 +1,6 @@
 package it.epicode.finalproject.service;
 
+import it.epicode.finalproject.dto.MicroSeasonDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.MicroSeason;
 import it.epicode.finalproject.repository.MicroSeasonRepository;
@@ -43,4 +44,17 @@ public class MicroSeasonService {
         microSeasonRepository.delete(toDelete);
     }
 
+    public List<MicroSeasonDto> getAllDto() {
+        return microSeasonRepository.findAll().stream()
+                .map(this::convertToDto)
+                .toList();
+    }
+
+    private MicroSeasonDto convertToDto(MicroSeason microSeason) {
+        MicroSeasonDto microSeasonDto = new MicroSeasonDto();
+        microSeasonDto.setJapaneseName(microSeason.getJapaneseName());
+        microSeasonDto.setItalianName(microSeason.getItalianName());
+        microSeasonDto.setDisplayPeriod(microSeason.getDisplayPeriod());
+        return microSeasonDto;
+    }
 }

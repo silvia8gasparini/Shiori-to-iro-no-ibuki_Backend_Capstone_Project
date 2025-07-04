@@ -1,5 +1,6 @@
 package it.epicode.finalproject.controller;
 
+import it.epicode.finalproject.dto.MicroSeasonDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.MicroSeason;
 import it.epicode.finalproject.service.MicroSeasonService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -35,6 +37,11 @@ public class MicroSeasonController {
         return microSeasonService.getAll(pageable);
     }
 
+    @GetMapping("/dto")
+    public List<MicroSeasonDto> getAllAsDto() {
+        return microSeasonService.getAllDto();
+    }
+
     @GetMapping("/search")
     public List<MicroSeason> searchByName(@RequestParam String name) {
         return microSeasonService.searchByName(name);
@@ -49,4 +56,5 @@ public class MicroSeasonController {
     public void delete(@PathVariable int id) throws NotFoundException {
         microSeasonService.delete(id);
     }
+
 }
