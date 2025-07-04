@@ -15,6 +15,12 @@ public class SeasonalColorDto {
     @NotEmpty(message = "L'RGB è obbligatorio")
     private String rgb;
 
+    @NotEmpty(message = "La descrizione è obbligatorio")
+    private String description;
+
+    @NotEmpty(message = "I dettagli sono obbligatori")
+    private String details;
+
     @NotEmpty(message = "L'URL dell'immagine è obbligatorio")
     private String imageUrl;
 

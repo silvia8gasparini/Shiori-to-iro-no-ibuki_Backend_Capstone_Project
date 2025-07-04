@@ -12,6 +12,10 @@ public class SeasonalColor {
     private String japaneseName;
     private String italianName;
     private String rgb;
+    @Column(length = 1000)
+    private String description;
+    @Column(length = 4000)
+    private String details;
     private String imageUrl;
 
     @OneToOne
