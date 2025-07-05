@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -38,6 +38,7 @@ public class UserController {
         }
         return userService.createUserByAdmin(userDto);
     }
+
 
     @GetMapping("")
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -79,7 +80,7 @@ public class UserController {
         return userService.patchUser(id, file);
     }
 
-    @PostMapping("/send-mail")
+    @PostMapping("/admin/send-mail")
     @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<String> sendMail(@RequestBody @Valid EmailDto emailDto, Authentication authentication) {
         String from = authentication.getName();
@@ -87,11 +88,5 @@ public class UserController {
         userService.send(from, emailDto.getTo(), emailDto.getSubject(), emailDto.getBody());
 
         return ResponseEntity.ok("Email inviata con successo.");
-    }
-
-    @GetMapping("/me")
-    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
-    public User getCurrentUser() {
-        return userService.getAuthenticatedUser();
     }
 }

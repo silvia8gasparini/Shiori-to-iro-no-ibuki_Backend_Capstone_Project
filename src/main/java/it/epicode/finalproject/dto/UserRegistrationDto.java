@@ -1,5 +1,6 @@
 package it.epicode.finalproject.dto;
 
+import it.epicode.finalproject.enumeration.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
@@ -18,5 +19,7 @@ public class UserRegistrationDto {
 
     @NotEmpty(message = "La password è obbligatoria")
     private String password;
+
+    private Role role;
 }
 
