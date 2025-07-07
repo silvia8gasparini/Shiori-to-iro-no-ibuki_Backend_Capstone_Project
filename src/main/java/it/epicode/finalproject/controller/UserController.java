@@ -2,6 +2,7 @@ package it.epicode.finalproject.controller;
 
 import it.epicode.finalproject.dto.EmailDto;
 import it.epicode.finalproject.dto.UserDto;
+import it.epicode.finalproject.dto.UserProfileDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.exception.ValidationException;
 import it.epicode.finalproject.model.User;
@@ -13,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,7 +40,6 @@ public class UserController {
         }
         return userService.createUserByAdmin(userDto);
     }
-
 
     @GetMapping("")
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -89,4 +90,17 @@ public class UserController {
 
         return ResponseEntity.ok("Email inviata con successo.");
     }
+
+    @GetMapping("/me")
+    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
+    public UserProfileDto getCurrentUser(@AuthenticationPrincipal User user) {
+        UserProfileDto userProfileDto = new UserProfileDto();
+        userProfileDto.setId(user.getId());
+        userProfileDto.setName(user.getName());
+        userProfileDto.setSurname(user.getSurname());
+        userProfileDto.setEmail(user.getEmail());
+        userProfileDto.setAvatarUrl(user.getAvatarUrl());
+        return userProfileDto;
+    }
+
 }
