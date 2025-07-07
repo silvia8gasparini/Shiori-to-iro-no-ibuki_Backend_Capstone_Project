@@ -56,5 +56,9 @@ public class MicroSeasonController {
     public void delete(@PathVariable int id) throws NotFoundException {
         microSeasonService.delete(id);
     }
-
+    
+    @GetMapping("/by-date")
+    public List<MicroSeason> getByDate(@RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+        return microSeasonService.getByDate(date);
+    }
 }

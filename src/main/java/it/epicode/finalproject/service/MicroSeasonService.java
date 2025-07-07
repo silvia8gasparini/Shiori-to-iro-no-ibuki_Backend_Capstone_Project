@@ -57,4 +57,8 @@ public class MicroSeasonService {
         microSeasonDto.setDisplayPeriod(microSeason.getDisplayPeriod());
         return microSeasonDto;
     }
+
+    public List<MicroSeason> getByDate(LocalDate date) {
+        return microSeasonRepository.findByStartDateBeforeAndEndDateAfter(date, date);
+    }
 }
