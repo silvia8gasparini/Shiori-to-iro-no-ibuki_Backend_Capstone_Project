@@ -28,10 +28,12 @@ public class Book {
     @Enumerated
     private Availability availability;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "seasonal_color_id")
     private SeasonalColor seasonalColor;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "micro_season_id")
     private MicroSeason microSeason;

@@ -1,5 +1,6 @@
 package it.epicode.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,5 +21,6 @@ public class SeasonalColor {
 
     @OneToOne
     @JoinColumn(name = "micro_season_id")
+    @JsonIgnore
     private MicroSeason microSeason;
 }

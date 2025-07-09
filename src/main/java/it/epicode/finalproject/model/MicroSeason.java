@@ -40,6 +40,4 @@ public class MicroSeason {
             return startDay + " " + startMonth + "–" + endDay + " " + endMonth;
         }
     }
-
-
 }

@@ -28,7 +28,13 @@ public class JwtFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String[] excludedEndpoints = { "/auth/**", "/html/**" };
+        String[] excludedEndpoints = {  "/auth/**",
+                "/html/**",
+                "/import/**",
+                "/microseasons/current",
+                "/books/**",
+                "/microseasons/**",
+                "/colors/**" };
         String path = request.getServletPath();
         AntPathMatcher matcher = new AntPathMatcher();
 

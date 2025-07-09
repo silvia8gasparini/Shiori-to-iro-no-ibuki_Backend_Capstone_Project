@@ -71,7 +71,11 @@ public class MicroSeasonService {
         }
 
         return results.get(0);
+    }
 
+    public List<MicroSeason> getNextSeasons(int count) {
+        Pageable pageable = PageRequest.of(0, count);
+        return microSeasonRepository.findNextSeasons(LocalDate.now(), pageable);
     }
 
 }

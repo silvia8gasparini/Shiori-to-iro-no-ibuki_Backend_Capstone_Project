@@ -56,7 +56,7 @@ public class MicroSeasonController {
     public void delete(@PathVariable int id) throws NotFoundException {
         microSeasonService.delete(id);
     }
-    
+
     @GetMapping("/by-date")
     public List<MicroSeason> getByDate(@RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return microSeasonService.getByDate(date);
@@ -66,4 +66,10 @@ public class MicroSeasonController {
     public MicroSeason getCurrentMicroSeason() throws NotFoundException {
         return microSeasonService.getCurrentMicroSeason();
     }
+
+    @GetMapping("/next")
+    public List<MicroSeason> getNextSeasons(@RequestParam(defaultValue = "3") int count) {
+        return microSeasonService.getNextSeasons(count);
+    }
+
 }

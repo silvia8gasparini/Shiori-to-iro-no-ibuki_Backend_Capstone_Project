@@ -29,6 +29,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/import/**").permitAll()
+                        .requestMatchers("/microseasons/current").permitAll()
                         .requestMatchers(HttpMethod.GET, "/books/**", "/microseasons/**", "/colors/**").permitAll()
                         .anyRequest().authenticated()
                 )

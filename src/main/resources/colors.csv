@@ -1,5 +1,5 @@
 ﻿startDate;endDate;micro_japanese_name;micro_italian_name;color_japanese_name;color_italian_name;color_rgb;description;details;image
-07/07/00;11/07/00;温風至;"""Cominciano a soffiare venti caldi""";紅色;Rosso cremisi;rgb(202, 0, 72);"""Un rosso intenso, caldo, profondo. È il colore del rossetto tradizionale, della lacca giapponese, del desiderio trattenuto, ma vivo. 
+07/07/25;11/07/25;温風至;"""Cominciano a soffiare venti caldi""";紅色;Rosso cremisi;rgb(202, 0, 72);"""Un rosso intenso, caldo, profondo. È il colore del rossetto tradizionale, della lacca giapponese, del desiderio trattenuto, ma vivo. 
 Ha dentro la forza del fuoco e la compostezza della forma.""";"""Dalle terre secche dell'Etiopia e dell'Afghanistan, attraversando deserti, montagne e secoli, il benibana 紅花 (“cartamo”)
 giunse in Oriente. Portato dai mercanti lungo la Via della Seta, arrivò in Giappone, dove i suoi petali cominciarono a raccontare una
 nuova storia, fatta di bellezza e tradizione.
@@ -9,7 +9,7 @@ Quando si parla di beni – il rosso del cartamo – il pensiero va subito al ku
 Questo colore è memoria, femminilità, cura, stile. Ha attraversato secoli e civiltà, radicandosi profondamente nella vita giapponese fino a diventare parte della lingua, del costume, dell'identità.
 Il benibana è dunque molto più di un fiore: è un ponte tra culture, un simbolo di bellezza che si è fatto gesto quotidiano.
 Un rosso che unisce mondi lontani, ma che sulle labbra, ancora oggi, sussurra qualcosa di intimo e senza tempo.""";/img/colors/beni.jpg
-12/07/00;16/07/00;蓮始開;"""Sbocciano i  primi fiori di loto""";天壇青;Blu sacro del cielo;rgb(3, 83, 130);"""Un blu profondo e vibrante, associato al Tendan 天壇, un altare celeste o simbolo di divinità. È un blu ricco, quasi mistico, che unisce il cielo e lo spirito.
+12/07/25;16/07/25;蓮始開;"""Sbocciano i  primi fiori di loto""";天壇青;Blu sacro del cielo;rgb(3, 83, 130);"""Un blu profondo e vibrante, associato al Tendan 天壇, un altare celeste o simbolo di divinità. È un blu ricco, quasi mistico, che unisce il cielo e lo spirito.
 È il colore del cielo che prega.""";"""A sud della Città Proibita, nella vasta pianura di Pechino, sorge il Tiāntán, il Tempio del Cielo. Qui, durante il solstizio d'inverno,
 l'imperatore cinese si rivolgeva al cielo per pregare: non solo per sé, ma per il popolo, per la terra, per il raccolto e la pace.
 La Sala della Preghiera per il Buon Raccolto (Shōsai-dō) è costruita secondo l'antica cosmologia del ten'en chihō shisō 天円地方思想: il cielo è rotondo, la terra è quadrata. Il suo tetto circolare, formato da tre strati di tegole smaltate, brilla di un blu profondo, vibrante, immenso: è il Tendan-sei 天壇青 (“blu Tendan”).
@@ -20,7 +20,7 @@ non è solo bellezza: è invocazione. È fede. È l'intuizione che esiste qualco
 E forse, anche oggi, in un mondo che sembra più complesso, ma non meno fragile, quel colore continua a parlare.
 Attraverso mari, secoli, dinastie e silenzi, il Tendan-sei resta un azzurro carico di speranza, un cielo invocato con umiltà.
 Un colore che non guarda in alto per allontanarsi dalla terra, ma per proteggerla.""";/img/colors/tendan.jpg
-17/07/00;22/07/00;鷹乃学習;"""I giovani falchi imparano a volare""";萱草色;Color giglio selvatico;rgb(244, 157, 67);"""Un arancio dorato, caldo e morbido, ispirato ai petali del giglio diurno (kanzō 萱草), un fiore che sboccia solo per un giorno. È un colore solare, ma non accecante. Un arancio che si è lasciato addolcire dal tempo.
+17/07/25;22/07/25;鷹乃学習;"""I giovani falchi imparano a volare""";萱草色;Color giglio selvatico;rgb(244, 157, 67);"""Un arancio dorato, caldo e morbido, ispirato ai petali del giglio diurno (kanzō 萱草), un fiore che sboccia solo per un giorno. È un colore solare, ma non accecante. Un arancio che si è lasciato addolcire dal tempo.
 È il colore del fiore che vive in fretta, ma lascia il segno. Una fiamma gentile nella luce dell’estate.""";"C'è un arancione che matura piano. Una sfumatura profonda, fatta di giallo acceso appena velato da un tocco di rosso: è kanzō-iro
 萱草色, il colore dei petali dell'hemerocallis (in inglese daylily), fiore che sboccia e appassisce nell'arco di un solo giorno (da cui
 deriva il nome greco).
@@ -33,7 +33,7 @@ Il nome di questo fiore, nei suoi caratteri cinesi, racconta già una storia: �
 Questo colore ambivalente, sospeso tra luce e crepuscolo, tra auspicio e addio, viene così reinterpretato anche come simbolo di
 consolazione. Non una negazione della tristezza, ma un invito a lasciarla scorrere via, come fa il tempo.
 Kanzō-iro è quindi un colore adulto, è un arancione che conosce la fine, eppure continua a sbocciare.";/img/colors/lily.jpg
-23/07/00;28/07/00;桐始結花;"""Il paulownia inizia a fiorire""";笹色;Verde bambù giovane;rgb(108, 106, 51);"""Il colore che vive una doppia vita. 
+23/07/25;28/07/25;桐始結花;"""Il paulownia inizia a fiorire""";笹色;Verde bambù giovane;rgb(108, 106, 51);"""Il colore che vive una doppia vita. 
 Asciutto, è verde pallido, timido, vegetale – il verde delle foglie giovani di bambù, fragile e composto. 
 Bagnato, si accende di un rosso inatteso, profondo, istintivo.
 È la tinta dei doppi, dei segreti, dei corpi che non obbediscono.""";"""Il sasa-iro è un verde che non nasce verde. Appare solo dopo, come un segreto svelato dall'aria. Un verde iridescente, così brillante e incantato che la stampa non riesce a catturarlo.
@@ -42,14 +42,14 @@ Durante il periodo Bunka-Bunsei, all'inizio del XIX secolo, questo pigmento dive
 Ancora oggi, la storica casa Isehan continua a produrre lo hon-beni, mantenendo viva una tradizione che non ha mai smesso di sedurre. Le labbra brillanti, intense, cangianti, come il rosso che diventa verde, non sono mai passate di moda.
 Un colore che insegna che ciò che vediamo non è sempre ciò che resta.
 E che la bellezza, a volte, è proprio nella trasformazione.""";/img/colors/bamboo.jpg
-29/07/00;02/08/00;土潤溽暑;"""La terra è umida, l'afa opprimente""";鋼色;Grigio acciaio;rgb(66, 72, 83);"""Un grigio scuro e freddo, con sfumature bluastre. È il colore del metallo temprato, delle spade affilate e del silenzio prima del movimento. Solido, tagliente, elegante.
+29/07/25;02/08/25;土潤溽暑;"""La terra è umida, l'afa opprimente""";鋼色;Grigio acciaio;rgb(66, 72, 83);"""Un grigio scuro e freddo, con sfumature bluastre. È il colore del metallo temprato, delle spade affilate e del silenzio prima del movimento. Solido, tagliente, elegante.
 È il grigio che non trema. Il colore del controllo.""";"""Lo hagane-iro 鋼色 è un grigio-blu che non consola né accoglie.
 È un colore cupo, severo, opaco, carico di silenzio e gravità. È il grigio acciaio, così chiamato per la sua somiglianza con l'acciaio ad alto tenore di carbonio: duro, profondo, senza riflesso. Un colore che non riflette la luce, ma l'assorbe. Come fa il cielo notturno quando è limpido e impenetrabile.
 È una tinta che vibra più nella letteratura che nei tessuti. Troppo intensa per essere indossata, troppo densa per scorrere su seta.
 La si trova nei romanzi di Ariyoshi Sawako e Takeo Arishima, nei versi di Ishikawa Takuboku e Ryuichi Tamaki, in quelle descrizioni di cieli così vuoti da sembrare pieni:“Un cielo senza una sola nuvola, del colore dell'acciaio.”
 Non è solo un'immagine: è un'atmosfera, un suono. Questo grigio-blu ha un'eco. Una risonanza grave, come di metallo percosso o pensiero trattenuto.
 E il colore del cielo che non perdona, ma nemmeno dimentica. Del cielo che ci guarda senza muoversi, che non ha bisogno di stelle per essere potente.""";/img/colors/katana.jpg
-03/08/00;07/08/00;大雨時行;"""Grandi piogge cadono a tratti""";松葉色;Verde ago di pino;rgb(131, 154, 92);"""Un verde scuro, profondo, con una punta fredda. È il colore degli aghi del pino giapponese, sempreverde e resistente. 
+03/08/25;07/08/25;大雨時行;"""Grandi piogge cadono a tratti""";松葉色;Verde ago di pino;rgb(131, 154, 92);"""Un verde scuro, profondo, con una punta fredda. È il colore degli aghi del pino giapponese, sempreverde e resistente. 
 Antico, sobrio, elegante come un kimono invernale.
 È il verde che non cede mai. Che resiste, anche quando tutto il resto svanisce.""";"""Il matsuba-iro 松葉色 è un verde che trova nel silenzio la propria forza.
 È il colore degli aghi di pino: una tonalità profonda, pacata, che ha il passo lento delle cose che durano.
