@@ -30,6 +30,7 @@ public class SecurityConfig {
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/import/**").permitAll()
                         .requestMatchers("/microseasons/current").permitAll()
+                        .requestMatchers("/books/microseason/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/books/**", "/microseasons/**", "/colors/**").permitAll()
                         .anyRequest().authenticated()
                 )
