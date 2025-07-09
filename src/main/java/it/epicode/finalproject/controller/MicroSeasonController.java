@@ -61,4 +61,9 @@ public class MicroSeasonController {
     public List<MicroSeason> getByDate(@RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return microSeasonService.getByDate(date);
     }
+
+    @GetMapping("/current")
+    public MicroSeason getCurrentMicroSeason() throws NotFoundException {
+        return microSeasonService.getCurrentMicroSeason();
+    }
 }

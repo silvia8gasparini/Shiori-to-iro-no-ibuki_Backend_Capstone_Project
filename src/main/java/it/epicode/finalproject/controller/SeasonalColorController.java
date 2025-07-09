@@ -57,4 +57,11 @@ public class SeasonalColorController {
     public void delete(@PathVariable int id) throws NotFoundException {
         seasonalColorService.delete(id);
     }
+
+    @GetMapping("/microseason/{microSeasonId}")
+    public SeasonalColor getByMicroSeasonId(@PathVariable int microSeasonId) throws NotFoundException {
+        return seasonalColorService.getByMicroSeasonId(microSeasonId);
+    }
+
+
 }

@@ -11,5 +11,4 @@ public interface MicroSeasonRepository extends JpaRepository<MicroSeason, Intege
     List<MicroSeason> findByStartDateBeforeAndEndDateAfter(LocalDate after, LocalDate before);
     List<MicroSeason> findByItalianNameContainingIgnoreCase(String name);
     boolean existsByJapaneseNameAndStartDate(String japaneseName, LocalDate startDate);
-
 }

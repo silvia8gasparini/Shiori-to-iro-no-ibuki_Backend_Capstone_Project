@@ -55,4 +55,9 @@ public class SeasonalColorService {
         seasonalColorRepository.delete(toDelete);
     }
 
+    public SeasonalColor getByMicroSeasonId(int microSeasonId) throws NotFoundException {
+        return seasonalColorRepository.findByMicroSeasonId(microSeasonId)
+                .orElseThrow(() -> new NotFoundException("Colore stagionale non trovato per la micro-stagione " + microSeasonId));
+    }
+
 }

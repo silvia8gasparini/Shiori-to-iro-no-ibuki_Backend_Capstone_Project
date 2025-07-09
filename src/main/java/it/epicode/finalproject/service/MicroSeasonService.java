@@ -61,4 +61,17 @@ public class MicroSeasonService {
     public List<MicroSeason> getByDate(LocalDate date) {
         return microSeasonRepository.findByStartDateBeforeAndEndDateAfter(date, date);
     }
+
+    public MicroSeason getCurrentMicroSeason() throws NotFoundException {
+        LocalDate today = LocalDate.now();
+        List<MicroSeason> results = microSeasonRepository.findByStartDateBeforeAndEndDateAfter(today, today);
+
+        if (results.isEmpty()) {
+            throw new NotFoundException("Nessuna micro-stagione attuale trovata");
+        }
+
+        return results.get(0);
+
+    }
+
 }

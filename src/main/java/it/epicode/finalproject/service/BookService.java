@@ -75,4 +75,5 @@ public class BookService {
     public Page<Book> findByPriceBetween(Double min, Double max, Pageable pageable){
         return bookRepository.findByPriceBetween(min, max, pageable);
     }
+
 }
