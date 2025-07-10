@@ -18,6 +18,8 @@ public class SeasonalColor {
     @Column(length = 4000)
     private String details;
     private String imageUrl;
+    @Column(length = 4000)
+    private String theme;
 
     @OneToOne
     @JoinColumn(name = "micro_season_id")

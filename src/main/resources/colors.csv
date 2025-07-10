@@ -1,4 +1,4 @@
-﻿startDate;endDate;micro_japanese_name;micro_italian_name;color_japanese_name;color_italian_name;color_rgb;description;details;image
+﻿startDate;endDate;micro_japanese_name;micro_italian_name;color_japanese_name;color_italian_name;color_rgb;description;details;image;theme
 07/07/25;11/07/25;温風至;"""Cominciano a soffiare venti caldi""";紅色;Rosso cremisi;rgb(202, 0, 72);"""Un rosso intenso, caldo, profondo. È il colore del rossetto tradizionale, della lacca giapponese, del desiderio trattenuto, ma vivo. 
 Ha dentro la forza del fuoco e la compostezza della forma.""";"""Dalle terre secche dell'Etiopia e dell'Afghanistan, attraversando deserti, montagne e secoli, il benibana 紅花 (“cartamo”)
 giunse in Oriente. Portato dai mercanti lungo la Via della Seta, arrivò in Giappone, dove i suoi petali cominciarono a raccontare una
@@ -8,7 +8,7 @@ Quando si parla di beni – il rosso del cartamo – il pensiero va subito al ku
 “mettere il rossetto” si dice proprio beni o hiku 紅を引く(letteralmente “tirare il rosso”): un gesto che è quasi un rito, una carezza tracciata con grazia sulle labbra, più dichiarazione d'animo che ornamento.
 Questo colore è memoria, femminilità, cura, stile. Ha attraversato secoli e civiltà, radicandosi profondamente nella vita giapponese fino a diventare parte della lingua, del costume, dell'identità.
 Il benibana è dunque molto più di un fiore: è un ponte tra culture, un simbolo di bellezza che si è fatto gesto quotidiano.
-Un rosso che unisce mondi lontani, ma che sulle labbra, ancora oggi, sussurra qualcosa di intimo e senza tempo.""";/img/colors/beni.jpg
+Un rosso che unisce mondi lontani, ma che sulle labbra, ancora oggi, sussurra qualcosa di intimo e senza tempo.""";/img/colors/beni.jpg;"""Un rosso di resistenza e rinascita, come il coraggio delle donne che fioriscono anche nel deserto."""
 12/07/25;16/07/25;蓮始開;"""Sbocciano i  primi fiori di loto""";天壇青;Blu sacro del cielo;rgb(3, 83, 130);"""Un blu profondo e vibrante, associato al Tendan 天壇, un altare celeste o simbolo di divinità. È un blu ricco, quasi mistico, che unisce il cielo e lo spirito.
 È il colore del cielo che prega.""";"""A sud della Città Proibita, nella vasta pianura di Pechino, sorge il Tiāntán, il Tempio del Cielo. Qui, durante il solstizio d'inverno,
 l'imperatore cinese si rivolgeva al cielo per pregare: non solo per sé, ma per il popolo, per la terra, per il raccolto e la pace.
@@ -19,7 +19,7 @@ Il desiderio umano, antico e persistente, di un futuro sereno, di una vita ordin
 non è solo bellezza: è invocazione. È fede. È l'intuizione che esiste qualcosa di più grande e che a quel qualcosa ci si può affidare.
 E forse, anche oggi, in un mondo che sembra più complesso, ma non meno fragile, quel colore continua a parlare.
 Attraverso mari, secoli, dinastie e silenzi, il Tendan-sei resta un azzurro carico di speranza, un cielo invocato con umiltà.
-Un colore che non guarda in alto per allontanarsi dalla terra, ma per proteggerla.""";/img/colors/tendan.jpg
+Un colore che non guarda in alto per allontanarsi dalla terra, ma per proteggerla.""";/img/colors/tendan.jpg;"""Un blu che respira lento, come il cielo che ascolta: colore di chi cerca, cammina, si trasforma."""
 17/07/25;22/07/25;鷹乃学習;"""I giovani falchi imparano a volare""";萱草色;Color giglio selvatico;rgb(244, 157, 67);"""Un arancio dorato, caldo e morbido, ispirato ai petali del giglio diurno (kanzō 萱草), un fiore che sboccia solo per un giorno. È un colore solare, ma non accecante. Un arancio che si è lasciato addolcire dal tempo.
 È il colore del fiore che vive in fretta, ma lascia il segno. Una fiamma gentile nella luce dell’estate.""";"C'è un arancione che matura piano. Una sfumatura profonda, fatta di giallo acceso appena velato da un tocco di rosso: è kanzō-iro
 萱草色, il colore dei petali dell'hemerocallis (in inglese daylily), fiore che sboccia e appassisce nell'arco di un solo giorno (da cui
@@ -32,7 +32,7 @@ Una frase che unisce lutto e splendore, tristezza e grazia. Anche il dolore, se 
 Il nome di questo fiore, nei suoi caratteri cinesi, racconta già una storia: 諼 (xuān), “dimenticare”, e 華 (huá), “fiore”. Un fiore che nasce per lenire la malinconia.
 Questo colore ambivalente, sospeso tra luce e crepuscolo, tra auspicio e addio, viene così reinterpretato anche come simbolo di
 consolazione. Non una negazione della tristezza, ma un invito a lasciarla scorrere via, come fa il tempo.
-Kanzō-iro è quindi un colore adulto, è un arancione che conosce la fine, eppure continua a sbocciare.";/img/colors/lily.jpg
+Kanzō-iro è quindi un colore adulto, è un arancione che conosce la fine, eppure continua a sbocciare.";/img/colors/lily.jpg;"""Un colore che consola nel silenzio, come un fiore che cresce sul ciglio del dolore: lieve, ma capace di reggere il ricordo."""
 23/07/25;28/07/25;桐始結花;"""Il paulownia inizia a fiorire""";笹色;Verde bambù giovane;rgb(108, 106, 51);"""Il colore che vive una doppia vita. 
 Asciutto, è verde pallido, timido, vegetale – il verde delle foglie giovani di bambù, fragile e composto. 
 Bagnato, si accende di un rosso inatteso, profondo, istintivo.
@@ -41,14 +41,14 @@ Eppure, nasce dal rosso, lo hon-beni 本紅, il rosso puro estratto dai petali d
 Durante il periodo Bunka-Bunsei, all'inizio del XIX secolo, questo pigmento divenne un oggetto del desiderio. La sua metamorfosi, quasi alchemica, affascinò anche gli artisti ukiyo-e: Hokusai e Keisai Eisen lo catturarono nelle loro stampe, cercando di fermare, almeno per un attimo, l'incanto mutevole del colore.
 Ancora oggi, la storica casa Isehan continua a produrre lo hon-beni, mantenendo viva una tradizione che non ha mai smesso di sedurre. Le labbra brillanti, intense, cangianti, come il rosso che diventa verde, non sono mai passate di moda.
 Un colore che insegna che ciò che vediamo non è sempre ciò che resta.
-E che la bellezza, a volte, è proprio nella trasformazione.""";/img/colors/bamboo.jpg
+E che la bellezza, a volte, è proprio nella trasformazione.""";/img/colors/bamboo.jpg;"""Un verde bifronte che non sa scegliersi: vive una vita sola, ma ne sente dentro un’altra – più oscura, più vera, più viva. In bilico tra il controllo e l’istinto, tra pelle e desiderio, tra chi siamo e chi temiamo di essere."""
 29/07/25;02/08/25;土潤溽暑;"""La terra è umida, l'afa opprimente""";鋼色;Grigio acciaio;rgb(66, 72, 83);"""Un grigio scuro e freddo, con sfumature bluastre. È il colore del metallo temprato, delle spade affilate e del silenzio prima del movimento. Solido, tagliente, elegante.
 È il grigio che non trema. Il colore del controllo.""";"""Lo hagane-iro 鋼色 è un grigio-blu che non consola né accoglie.
 È un colore cupo, severo, opaco, carico di silenzio e gravità. È il grigio acciaio, così chiamato per la sua somiglianza con l'acciaio ad alto tenore di carbonio: duro, profondo, senza riflesso. Un colore che non riflette la luce, ma l'assorbe. Come fa il cielo notturno quando è limpido e impenetrabile.
 È una tinta che vibra più nella letteratura che nei tessuti. Troppo intensa per essere indossata, troppo densa per scorrere su seta.
 La si trova nei romanzi di Ariyoshi Sawako e Takeo Arishima, nei versi di Ishikawa Takuboku e Ryuichi Tamaki, in quelle descrizioni di cieli così vuoti da sembrare pieni:“Un cielo senza una sola nuvola, del colore dell'acciaio.”
 Non è solo un'immagine: è un'atmosfera, un suono. Questo grigio-blu ha un'eco. Una risonanza grave, come di metallo percosso o pensiero trattenuto.
-E il colore del cielo che non perdona, ma nemmeno dimentica. Del cielo che ci guarda senza muoversi, che non ha bisogno di stelle per essere potente.""";/img/colors/katana.jpg
+E il colore del cielo che non perdona, ma nemmeno dimentica. Del cielo che ci guarda senza muoversi, che non ha bisogno di stelle per essere potente.""";/img/colors/katana.jpg;"""""È il colore di chi domina il tempo: la quiete prima del colpo, l’eleganza dell’acciaio che non cerca il conflitto, ma non lo teme. Un grigio che vive tra controllo e displica."""
 03/08/25;07/08/25;大雨時行;"""Grandi piogge cadono a tratti""";松葉色;Verde ago di pino;rgb(131, 154, 92);"""Un verde scuro, profondo, con una punta fredda. È il colore degli aghi del pino giapponese, sempreverde e resistente. 
 Antico, sobrio, elegante come un kimono invernale.
 È il verde che non cede mai. Che resiste, anche quando tutto il resto svanisce.""";"""Il matsuba-iro 松葉色 è un verde che trova nel silenzio la propria forza.
@@ -56,7 +56,7 @@ Antico, sobrio, elegante come un kimono invernale.
 Nel Makura no Sōshi Sei Shōnagon scrive dei colori delle vesti da caccia: tinte lievi, profumate d'incenso, tra cui il bianco, il porpora, il cremisi... e il verde aghi di pino. Già nell'epoca Heian, il matsuba-iro era apprezzato per i suoi toni solenni, tanto da diventare parte delle cerimonie, delle stagioni, della vita.
 Il pino è un albero sempreverde, saldo, che può vivere per secoli. In Giappone, lo si considera un “albero sacro”, un luogo dove dimorano i kami (le divinità).
 Secondo una leggenda, il nome matsu 松 deriva dal verbo matsu 待つ (“aspettare”): si diceva che il pino attendesse l'arrivo degli dèi.
-Matsuba-iro è il colore della costanza, della venerazione silenziosa, della calma che sa aspettare.""";/img/colors/pine.jpg
+Matsuba-iro è il colore della costanza, della venerazione silenziosa, della calma che sa aspettare.""";/img/colors/pine.jpg;"""Un verde antico che resiste al tempo, sobrio e profondo come un’antica leggenda sussurrata tra gli alberi."""
 08/08/25;12/08/25;涼風至;"""Soffia la brezza fresca""";薄群青;Blu oltremare chiaro;rgb(117, 141, 196);"""Un blu delicato e slavato, come il cielo che si è perso in una bruma leggera. È la versione attenuata del blu oltremare, un'eco acquatica e silenziosa. 
 È il blu che si è lasciato sfumare, che si è fatto pensiero. Il ricordo di un'onda calma sulla carta di riso.""";"""Esiste un azzurro che non è solo azzurro. È attraversato da un respiro violaceo, come se portasse dentro una memoria di crepuscolo o di silenzio d'acqua.
 È il gunjō 群青 (“blu oltremare”) un colore profondo e nobile, usato fin dall'antichità nei dipinti, negli oggetti rituali, negli
@@ -68,7 +68,7 @@ Non si tratta di un colore semplicemente diluito: è una luce scavata nella mate
 devota. Era un colore raro e costoso.
 Ancora oggi ci parla di qualcosa che sta tra il sacro e l'inaccessibile.
 La sua lucentezza, sottile e calma, richiama la superficie immobile dell'acqua, o i petali di un fiore di loto che galleggiano sospesi
-tra cielo e fango, tra il visibile e l'invisibile.""";/img/colors/bluelotus.jpg
+tra cielo e fango, tra il visibile e l'invisibile.""";/img/colors/bluelotus.jpg;"""Il blu che resta sulle dita dopo la poesia: un colore che sfuma tra il cielo e la carta, tra il tempo e l’anima."""
 13/08/25;17/08/25;寒蝉鳴 ;"""Cantano le cicale""";鈍色;Grigio smorzato;rgb(78, 79, 82);"""Un grigio profondo e opaco, con sfumature brunite o ferrose. Pesante, quieto, austero. È il colore del metallo vecchio, del ferro dopo la battaglia.
 È il grigio che ha resistito. Il silenzio temprato dal tempo.""";"""Nibi-iro 鈍色 non è un colore nel senso consueto. Non si lascia definire da una sola sfumatura. È un colore che si lascia intuire più che vedere. Un colore che si sottrae.
 Nel periodo Heian, il nibi-iro veniva usato per gli abiti del lutto. Nel Genji Monogatari, si legge:
@@ -80,7 +80,7 @@ segue l'emozione, la dignità del contenersi.
 Nibi-iro non è tanto una tinta quanto un gesto interiore: l'atto di farsi da parte per rispetto, di non occupare spazio, di lasciare che il
 sentimento si manifesti con sobrietà.
 È il colore del cuore che sa astenersi. Del rispetto che non ha bisogno di parole. Della tristezza che non cerca pietà, ma solo
-silenzio.""";/img/colors/nibi.jpg
+silenzio.""";/img/colors/nibi.jpg;“Il grigio che non cerca consolazione, ma solo verità. Un colore denso, di chi ha attraversato il dolore e lo indossa con dignità.”
 18/08/25;25/08/25;蒙霧升降;"""Si sollevano e calano nebbie leggere""";生成り色;Color naturale;rgb(242, 225, 207);"""Un beige chiarissimo, simile al lino non trattato o alla seta non tinta. È il colore dell’origine, della materia ancora intatta, della purezza senza artificio.
 È il colore di ciò che esiste prima che il mondo lo trasformi. Semplice, vero.""";"""Il kinari-iro 生成り色 è un tono chiaro che dà una sensazione di armonia e naturalezza.
 È il colore della seta grezza, non tinta, lasciata così com'è venuta al mondo.
@@ -93,4 +93,4 @@ replicato, tinto.
 Da allora, la riscoperta dei toni naturali è diventata anche un atto etico.
 Questo colore è diventato simbolo della moda sostenibile, di una bellezza che rispetta, che non sovraccarica il mondo, che sceglie
 la sobrietà come forma di eleganza.
-Non tutto deve cambiare per essere bello. A volte, ciò che resta com'è, è ciò che più ci somiglia.""";/img/colors/natural.jpg
+Non tutto deve cambiare per essere bello. A volte, ciò che resta com'è, è ciò che più ci somiglia.""";/img/colors/natural.jpg;"""È il colore delle cose che non hanno bisogno di apparire. Del paesaggio prima dello sguardo, della parola prima del pensiero."""

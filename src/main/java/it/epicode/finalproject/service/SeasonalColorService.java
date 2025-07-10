@@ -1,5 +1,6 @@
 package it.epicode.finalproject.service;
 
+import it.epicode.finalproject.dto.SeasonalColorDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.SeasonalColor;
 import it.epicode.finalproject.repository.SeasonalColorRepository;
@@ -17,7 +18,20 @@ public class SeasonalColorService {
     @Autowired
     private SeasonalColorRepository seasonalColorRepository;
 
-    public SeasonalColor create(SeasonalColor color) {
+    @Autowired
+    private MicroSeasonService microSeasonService;
+
+    public SeasonalColor create(SeasonalColorDto dto) throws NotFoundException {
+        SeasonalColor color = new SeasonalColor();
+        color.setJapaneseName(dto.getJapaneseName());
+        color.setItalianName(dto.getItalianName());
+        color.setRgb(dto.getRgb());
+        color.setDescription(dto.getDescription());
+        color.setDetails(dto.getDetails());
+        color.setImageUrl(dto.getImageUrl());
+        color.setTheme(dto.getTheme());
+        color.setMicroSeason(microSeasonService.getById(dto.getMicroSeasonId())); // Associazione
+
         return seasonalColorRepository.save(color);
     }
 
@@ -48,6 +62,7 @@ public class SeasonalColorService {
         existing.setItalianName(updated.getItalianName());
         existing.setRgb(updated.getRgb());
         existing.setImageUrl(updated.getImageUrl());
+        existing.setTheme(updated.getTheme());
         return seasonalColorRepository.save(existing);
     }
 

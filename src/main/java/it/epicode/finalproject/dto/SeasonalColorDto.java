@@ -24,6 +24,9 @@ public class SeasonalColorDto {
     @NotEmpty(message = "L'URL dell'immagine è obbligatorio")
     private String imageUrl;
 
+    @NotEmpty(message = "Il tema è obbligatorio")
+    private String theme;
+
     @NotNull(message = "L'ID della micro-stagione è obbligatorio")
     private Integer microSeasonId;
 }

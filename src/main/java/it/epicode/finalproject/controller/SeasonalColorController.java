@@ -1,5 +1,6 @@
 package it.epicode.finalproject.controller;
 
+import it.epicode.finalproject.dto.SeasonalColorDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.SeasonalColor;
 import it.epicode.finalproject.service.SeasonalColorService;
@@ -19,8 +20,8 @@ public class SeasonalColorController {
     private SeasonalColorService seasonalColorService;
 
     @PostMapping
-    public SeasonalColor create(@RequestBody @Valid SeasonalColor color) {
-        return seasonalColorService.create(color);
+    public SeasonalColor create(@RequestBody @Valid SeasonalColorDto dto) throws NotFoundException {
+        return seasonalColorService.create(dto);
     }
 
     @GetMapping("/{id}")

@@ -88,6 +88,7 @@ public class ImportService {
                     color.setDescription(record.get(7).trim());
                     color.setDetails(record.get(8).trim());
                     color.setImageUrl(record.get(9).trim());
+                    color.setTheme(record.get(10).trim());
                     color.setMicroSeason(savedSeason);
 
                     seasonalColorRepository.save(color);
@@ -104,6 +105,7 @@ public class ImportService {
             System.err.println("Errore durante la lettura del file CSV: " + e.getMessage());
         }
     }
+
 
     public void importaLibriDaCsv() {
         int count = 0;
