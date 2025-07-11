@@ -29,7 +29,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_USER') or hasAuthority('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public User createUserByAdmin(@RequestBody @Valid UserDto userDto, BindingResult bindingResult)
             throws ValidationException {
@@ -90,7 +90,7 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_USER') or hasAuthority('ROLE_ADMIN')")
     public UserProfileDto getCurrentUser(@AuthenticationPrincipal User user) {
         UserProfileDto userProfileDto = new UserProfileDto();
         userProfileDto.setId(user.getId());
