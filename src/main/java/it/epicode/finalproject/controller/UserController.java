@@ -86,8 +86,6 @@ public class UserController {
     public ResponseEntity<String> sendMail(@RequestBody @Valid EmailDto emailDto, Authentication authentication) {
         String from = authentication.getName();
 
-        userService.send(from, emailDto.getTo(), emailDto.getSubject(), emailDto.getBody());
-
         return ResponseEntity.ok("Email inviata con successo.");
     }
 

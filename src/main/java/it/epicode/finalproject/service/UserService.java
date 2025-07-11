@@ -1,6 +1,7 @@
 package it.epicode.finalproject.service;
 
 import com.cloudinary.Cloudinary;
+import com.paypal.http.Environment;
 import it.epicode.finalproject.dto.UserDto;
 import it.epicode.finalproject.dto.UserRegistrationDto;
 import it.epicode.finalproject.enumeration.Role;
@@ -8,10 +9,12 @@ import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.User;
 import it.epicode.finalproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +37,7 @@ public class UserService {
     private Cloudinary cloudinary;
 
     @Autowired
-    private EmailService mailService;
+    private EmailService emailService;
 
     public User saveUser(UserRegistrationDto userRegistrationDto) {
         User user = new User();
@@ -44,8 +47,17 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
         Role role = userRegistrationDto.getRole();
         user.setRole(role != null ? role : Role.USER);
-        return userRepository.save(user);
+
+        User savedUser = userRepository.save(user);
+
+        emailService.send(
+                savedUser.getEmail(),
+                "Benvenutə da Ibuki! 🌸",
+                "おはようございます " + savedUser.getName() + ", La tua registrazione è andata a buon fine! Grazie per esserti unito a noi."
+        );
+        return savedUser;
     }
+
 
     public User createUserByAdmin(UserDto userDto) {
         User user = new User();
@@ -96,10 +108,6 @@ public class UserService {
     public void deleteUser(int id) throws NotFoundException {
         User userToDelete = getUser(id);
         userRepository.delete(userToDelete);
-    }
-
-    public void send(String from, String to, String subject, String body) {
-        mailService.send(from, to, subject, body);
     }
 
     public User getAuthenticatedUser() {
