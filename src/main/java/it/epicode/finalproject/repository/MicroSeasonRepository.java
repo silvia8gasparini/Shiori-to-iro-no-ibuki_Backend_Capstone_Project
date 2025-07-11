@@ -12,6 +12,7 @@ import java.util.List;
 public interface MicroSeasonRepository extends JpaRepository<MicroSeason, Integer> {
     List<MicroSeason> findAllByJapaneseName(String japaneseName);
     List<MicroSeason> findByStartDateBeforeAndEndDateAfter(LocalDate after, LocalDate before);
+    List<MicroSeason> findByStartDateLessThanEqualAndEndDateGreaterThanEqual(LocalDate start, LocalDate end);
     List<MicroSeason> findByItalianNameContainingIgnoreCase(String name);
     boolean existsByJapaneseNameAndStartDate(String japaneseName, LocalDate startDate);
 
