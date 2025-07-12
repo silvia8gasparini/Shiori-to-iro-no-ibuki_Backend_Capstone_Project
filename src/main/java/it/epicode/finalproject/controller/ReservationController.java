@@ -2,12 +2,14 @@ package it.epicode.finalproject.controller;
 
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.Reservation;
+import it.epicode.finalproject.model.User;
 import it.epicode.finalproject.service.ReservationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -39,6 +41,11 @@ public class ReservationController {
     @GetMapping("/user/{userId}")
     public Page<Reservation> getByUserId(@PathVariable int userId, Pageable pageable) {
         return reservationService.getByUserId(userId, pageable);
+    }
+
+    @GetMapping("/me")
+    public Page<Reservation> getMyReservations(@AuthenticationPrincipal User user, Pageable pageable) {
+        return reservationService.getByUserId(user.getId(), pageable);
     }
 
     @GetMapping("/by-card/{cardId}")
