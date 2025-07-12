@@ -1,12 +1,15 @@
 package it.epicode.finalproject.controller;
 
+import it.epicode.finalproject.dto.CartItemDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.CartItem;
+import it.epicode.finalproject.model.User;
 import it.epicode.finalproject.service.CartItemService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,36 +19,25 @@ public class CartItemController {
     @Autowired
     private CartItemService cartItemService;
 
-    @PostMapping("/cart/{cartId}/book/{bookId}")
-    public CartItem saveCartItem(@RequestBody @Valid CartItem cartItem,
-                                 @PathVariable int cartId,
-                                 @PathVariable int bookId) throws NotFoundException {
-        return cartItemService.saveCartItem(cartItem, cartId, bookId);
+    @PostMapping
+    public CartItem addToCart(@RequestBody @Valid CartItemDto dto,
+                              @AuthenticationPrincipal User user) throws NotFoundException {
+        return cartItemService.saveCartItemForUser(dto, user.getId());
     }
 
-    @GetMapping("")
-    public Page<CartItem> getAllCartItems(Pageable pageable) {
-        return cartItemService.getAllCartItems(pageable);
-    }
-
-    @GetMapping("/{id}")
-    public CartItem getCartItem(@PathVariable int id) throws NotFoundException {
-        return cartItemService.getCartItem(id);
+    @GetMapping("/me")
+    public Page<CartItem> getMyCartItems(@AuthenticationPrincipal User user, Pageable pageable) {
+        return cartItemService.findByUserId(user.getId(), pageable);
     }
 
     @PutMapping("/{id}")
-    public CartItem updateCartItem(@PathVariable int id, @RequestBody @Valid CartItem updatedItem)
-            throws NotFoundException {
-        return cartItemService.updateCartItem(id, updatedItem);
+    public CartItem updateCartItem(@PathVariable int id,
+                                   @RequestBody @Valid CartItemDto dto) throws NotFoundException {
+        return cartItemService.updateCartItem(id, dto);
     }
 
     @DeleteMapping("/{id}")
     public void deleteCartItem(@PathVariable int id) throws NotFoundException {
         cartItemService.deleteCartItem(id);
-    }
-
-    @GetMapping("/cart/{cartId}")
-    public Page<CartItem> findByCartId(@PathVariable int cartId, Pageable pageable) {
-        return cartItemService.findByCartId(cartId, pageable);
     }
 }

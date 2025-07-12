@@ -35,6 +35,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Purchase> purchases;
 
+    @OneToOne(mappedBy = "user")
+    private Cart cart;
+
     @OneToMany(mappedBy = "user")
     private List<Borrow> borrows;
 

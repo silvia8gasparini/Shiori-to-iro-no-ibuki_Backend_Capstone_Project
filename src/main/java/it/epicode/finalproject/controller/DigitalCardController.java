@@ -2,6 +2,8 @@ package it.epicode.finalproject.controller;
 
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.DigitalCard;
+import it.epicode.finalproject.model.User;
+import it.epicode.finalproject.repository.UserRepository;
 import it.epicode.finalproject.service.DigitalCardService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +12,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/digital-cards")
 public class DigitalCardController {
 
     @Autowired
     private DigitalCardService digitalCardService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/user/{userId}")
     @ResponseStatus(HttpStatus.CREATED)
@@ -54,4 +61,13 @@ public class DigitalCardController {
     public void deleteCard(@PathVariable int id) throws NotFoundException {
         digitalCardService.deleteCard(id);
     }
+
+    @GetMapping("/me")
+    public DigitalCard getMyCard(Principal principal) throws NotFoundException {
+        String email = principal.getName();
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("User not found"));
+        return digitalCardService.getCardByUserId(user.getId());
+    }
+
 }

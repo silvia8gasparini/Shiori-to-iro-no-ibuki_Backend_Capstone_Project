@@ -31,6 +31,9 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
+    private DigitalCardService digitalCardService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -49,6 +52,8 @@ public class UserService {
         user.setRole(role != null ? role : Role.USER);
 
         User savedUser = userRepository.save(user);
+
+        digitalCardService.createCard(savedUser.getId());
 
         emailService.send(
                 savedUser.getEmail(),

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/purchases")
+@RequestMapping("/purchase")
 public class PurchaseController {
 
     @Autowired

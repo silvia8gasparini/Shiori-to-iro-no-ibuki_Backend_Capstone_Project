@@ -36,7 +36,7 @@ public class ReservationController {
         return reservationService.getAllReservations(pageable);
     }
 
-    @GetMapping("/by-user/{userId}")
+    @GetMapping("/user/{userId}")
     public Page<Reservation> getByUserId(@PathVariable int userId, Pageable pageable) {
         return reservationService.getByUserId(userId, pageable);
     }

@@ -2,26 +2,29 @@ package it.epicode.finalproject.controller;
 
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.Cart;
+import it.epicode.finalproject.model.User;
 import it.epicode.finalproject.service.CartService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/carts")
+@RequestMapping("/cart")
 public class CartController {
 
     @Autowired
     private CartService cartService;
 
-    @PostMapping("/user/{userId}")
-    public Cart saveCart(@RequestBody @Valid Cart cart, @PathVariable int userId) throws NotFoundException {
-        return cartService.saveCart(cart, userId);
+    @PostMapping
+    public Cart saveCart(@RequestBody @Valid Cart cart,
+                         @AuthenticationPrincipal User user) throws NotFoundException {
+        return cartService.saveCart(cart, user.getId());
     }
 
-    @GetMapping("")
+    @GetMapping
     public Page<Cart> getAllCarts(Pageable pageable) {
         return cartService.getAllCarts(pageable);
     }
@@ -32,7 +35,8 @@ public class CartController {
     }
 
     @PutMapping("/{id}")
-    public Cart updateCart(@PathVariable int id, @RequestBody @Valid Cart updatedCart) throws NotFoundException {
+    public Cart updateCart(@PathVariable int id,
+                           @RequestBody @Valid Cart updatedCart) throws NotFoundException {
         return cartService.updateCart(id, updatedCart);
     }
 
@@ -41,8 +45,8 @@ public class CartController {
         cartService.deleteCart(id);
     }
 
-    @GetMapping("/user/{userId}")
-    public Page<Cart> findByUserId(@PathVariable int userId, Pageable pageable) {
-        return cartService.findByUserId(userId, pageable);
+    @GetMapping("/me")
+    public Page<Cart> getMyCarts(@AuthenticationPrincipal User user, Pageable pageable) {
+        return cartService.findByUserId(user.getId(), pageable);
     }
 }

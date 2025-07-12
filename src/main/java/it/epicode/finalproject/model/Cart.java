@@ -14,8 +14,8 @@ public class Cart {
     @GeneratedValue
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne
+    @JoinColumn(name = "user_id", unique = true)
     private User user;
 
     @JsonIgnore

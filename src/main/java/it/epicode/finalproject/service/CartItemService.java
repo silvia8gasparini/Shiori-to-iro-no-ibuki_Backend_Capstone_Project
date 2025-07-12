@@ -1,9 +1,11 @@
 package it.epicode.finalproject.service;
 
+import it.epicode.finalproject.dto.CartItemDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.Book;
 import it.epicode.finalproject.model.Cart;
 import it.epicode.finalproject.model.CartItem;
+import it.epicode.finalproject.model.User;
 import it.epicode.finalproject.repository.BookRepository;
 import it.epicode.finalproject.repository.CartItemRepository;
 import it.epicode.finalproject.repository.CartRepository;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CartItemService {
+
     @Autowired
     private CartItemRepository cartItemRepository;
 
@@ -23,41 +26,45 @@ public class CartItemService {
     @Autowired
     private CartRepository cartRepository;
 
-    public CartItem saveCartItem(CartItem cartItem, int cartId, int bookId) throws NotFoundException {
-        Cart cart = cartRepository.findById(cartId)
-                .orElseThrow(() -> new NotFoundException("Cart not found with id: " + cartId));
+    public CartItem saveCartItemForUser(CartItemDto dto, int userId) throws NotFoundException {
+        Cart cart = cartRepository.findByUserId(userId)
+                .orElseGet(() -> {
+                    Cart newCart = new Cart();
+                    User user = new User();
+                    user.setId(userId);
+                    newCart.setUser(user);
+                    return cartRepository.save(newCart);
+                });
 
-        Book book = bookRepository.findById(bookId)
-                .orElseThrow(() -> new NotFoundException("Book not found with id: " + bookId));
+        Book book = bookRepository.findById(dto.getBookId())
+                .orElseThrow(() -> new NotFoundException("Libro non trovato con ID " + dto.getBookId()));
 
-        cartItem.setCart(cart);
-        cartItem.setBook(book);
+        CartItem item = new CartItem();
+        item.setCart(cart);
+        item.setBook(book);
+        item.setQuantity(dto.getQuantity());
+        item.setPriceAtSelection(dto.getPriceAtSelection());
 
-        return cartItemRepository.save(cartItem);
+        return cartItemRepository.save(item);
     }
 
-    public CartItem getCartItem(int id) throws NotFoundException {
-        return cartItemRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("CartItem not found with id: " + id));
+    public Page<CartItem> findByUserId(int userId, Pageable pageable) {
+        return cartRepository.findByUserId(userId)
+                .map(cart -> cartItemRepository.findByCartId(cart.getId(), pageable))
+                .orElse(Page.empty(pageable));
     }
 
-    public Page<CartItem> getAllCartItems(Pageable pageable) {
-        return cartItemRepository.findAll(pageable);
-    }
-
-    public CartItem updateCartItem(int id, CartItem updatedItem) throws NotFoundException {
-        CartItem existing = getCartItem(id);
-        existing.setQuantity(updatedItem.getQuantity());
-        existing.setPriceAtSelection(updatedItem.getPriceAtSelection());
+    public CartItem updateCartItem(int id, CartItemDto dto) throws NotFoundException {
+        CartItem existing = cartItemRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("CartItem non trovato con ID: " + id));
+        existing.setQuantity(dto.getQuantity());
+        existing.setPriceAtSelection(dto.getPriceAtSelection());
         return cartItemRepository.save(existing);
     }
 
     public void deleteCartItem(int id) throws NotFoundException {
-        CartItem item = getCartItem(id);
+        CartItem item = cartItemRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("CartItem non trovato con ID: " + id));
         cartItemRepository.delete(item);
-    }
-
-    public Page<CartItem> findByCartId(int cartId, Pageable pageable) {
-        return cartItemRepository.findByCartId(cartId, pageable);
     }
 }
