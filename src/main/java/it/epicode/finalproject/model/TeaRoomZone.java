@@ -12,6 +12,5 @@ public class TeaRoomZone {
     @GeneratedValue
     private int id;
     private String name;
-    private String description;
     private String imageUrl;
 }

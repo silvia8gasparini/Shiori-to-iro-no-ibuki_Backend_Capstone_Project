@@ -1,5 +1,6 @@
 package it.epicode.finalproject.controller;
 
+import it.epicode.finalproject.dto.DigitalCardDto;
 import it.epicode.finalproject.dto.EmailDto;
 import it.epicode.finalproject.dto.UserDto;
 import it.epicode.finalproject.dto.UserProfileDto;
@@ -98,9 +99,17 @@ public class UserController {
         userProfileDto.setSurname(user.getSurname());
         userProfileDto.setEmail(user.getEmail());
         userProfileDto.setAvatarUrl(user.getAvatarUrl());
+
         if (user.getDigitalCard() != null) {
-            userProfileDto.setDigitalCard(user.getDigitalCard().getCardNumber());
+            DigitalCardDto cardDto = new DigitalCardDto();
+            cardDto.setId(user.getDigitalCard().getId());
+            cardDto.setCardNumber(user.getDigitalCard().getCardNumber());
+            cardDto.setIssuedAt(user.getDigitalCard().getIssuedAt());
+            cardDto.setUserId(user.getId());
+
+            userProfileDto.setDigitalCard(cardDto);
         }
+
         return userProfileDto;
     }
 

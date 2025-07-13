@@ -9,5 +9,4 @@ public class UserProfileDto {
     private String surname;
     private String email;
     private String avatarUrl;
-    private String digitalCard;
-}
+    private DigitalCardDto digitalCard;}

@@ -1,5 +1,7 @@
 package it.epicode.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import it.epicode.finalproject.enumeration.TimeSlot;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -19,9 +21,11 @@ public class Reservation {
     private TimeSlot timeSlot;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     @ManyToOne
+    @JsonIgnore
     private DigitalCard digitalCard;
 
     @ManyToOne

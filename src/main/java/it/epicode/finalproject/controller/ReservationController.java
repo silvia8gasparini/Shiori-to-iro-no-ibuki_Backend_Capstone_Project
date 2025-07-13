@@ -1,8 +1,11 @@
 package it.epicode.finalproject.controller;
 
+import io.jsonwebtoken.security.Request;
+import it.epicode.finalproject.dto.ReservationDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.Reservation;
 import it.epicode.finalproject.model.User;
+import it.epicode.finalproject.repository.ReservationRepository;
 import it.epicode.finalproject.service.ReservationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping("/reservations")
@@ -22,10 +26,9 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @PostMapping
-    public Reservation create(@RequestBody @Valid Reservation reservation,
-                              @RequestParam int userId,
-                              @RequestParam int cardId) throws NotFoundException {
-        return reservationService.createReservation(reservation, userId, cardId);
+    public Reservation create(@RequestBody @Valid ReservationDto reservationDto,
+                              @RequestParam int zoneId) throws NotFoundException {
+        return reservationService.createReservation(reservationDto, zoneId);
     }
 
     @GetMapping("/{id}")
@@ -59,6 +62,11 @@ public class ReservationController {
         return reservationService.getByDate(date, pageable);
     }
 
+    @GetMapping("/by-zone/{zoneId}")
+    public List<Reservation> getByZone(@PathVariable int zoneId) {
+        return reservationService.getByZoneId(zoneId);
+    }
+
     @GetMapping("/count")
     public long countByDate(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return reservationService.countByDate(date);
@@ -73,4 +81,5 @@ public class ReservationController {
     public void delete(@PathVariable int id) throws NotFoundException {
         reservationService.deleteReservation(id);
     }
+
 }
