@@ -7,6 +7,8 @@ import it.epicode.finalproject.model.Favorite;
 import it.epicode.finalproject.model.User;
 import it.epicode.finalproject.repository.BookRepository;
 import it.epicode.finalproject.repository.FavoriteRepository;
+import it.epicode.finalproject.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,9 @@ public class FavoriteService {
 
     @Autowired
     private BookRepository bookRepo;
+
+    @Autowired
+    private UserRepository userRepo;
 
     public boolean toggleFavorite(User user, int bookId) throws NotFoundException {
         int userId = user.getId();
@@ -39,6 +44,30 @@ public class FavoriteService {
         }
     }
 
+    public void addToFavorites(int userId, int bookId) {
+        if (favoriteRepo.existsByUserIdAndBookId(userId, bookId)) return;
+
+        User user = userRepo.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Utente non trovato"));
+
+        Book book = bookRepo.findById(bookId)
+                .orElseThrow(() -> new NotFoundException("Libro non trovato"));
+
+        Favorite favorite = new Favorite();
+        favorite.setUser(user);
+        favorite.setBook(book);
+
+        favoriteRepo.save(favorite);
+    }
+
+    @Transactional
+    public void removeFromFavorites(int userId, int bookId) {
+        boolean exists = favoriteRepo.existsByUserIdAndBookId(userId, bookId);
+        if (!exists) {
+            throw new NotFoundException("Preferito non trovato");
+        }
+        favoriteRepo.deleteByUserIdAndBookId(userId, bookId);
+    }
     public List<FavoriteDto> getFavoritesByUser(int userId) {
         return favoriteRepo.findByUserId(userId)
                 .stream()

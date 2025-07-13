@@ -98,6 +98,9 @@ public class UserController {
         userProfileDto.setSurname(user.getSurname());
         userProfileDto.setEmail(user.getEmail());
         userProfileDto.setAvatarUrl(user.getAvatarUrl());
+        if (user.getDigitalCard() != null) {
+            userProfileDto.setDigitalCard(user.getDigitalCard().getCardNumber());
+        }
         return userProfileDto;
     }
 

@@ -23,6 +23,7 @@ public class UserDto {
     private String password;
 
     private String avatarUrl;
+    private String digitalCard;
 
     @NotNull(message = "Role is required")
     private Role role;

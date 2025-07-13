@@ -16,11 +16,6 @@ public class FavoriteController {
     @Autowired
     private FavoriteService favoriteService;
 
-    @PostMapping("/toggle/{bookId}")
-    public boolean toggleFavorite(@PathVariable int bookId, @AuthenticationPrincipal User user) throws NotFoundException {
-        return favoriteService.toggleFavorite(user, bookId);
-    }
-
     @GetMapping("/me")
     public List<FavoriteDto> getMyFavorites(@AuthenticationPrincipal User user) {
         return favoriteService.getFavoritesByUser(user.getId());
@@ -30,4 +25,15 @@ public class FavoriteController {
     public boolean isFavorite(@PathVariable int bookId, @AuthenticationPrincipal User user) {
         return favoriteService.isFavorite(user.getId(), bookId);
     }
+
+    @PostMapping("/add/{bookId}")
+    public void addFavorite(@PathVariable int bookId, @AuthenticationPrincipal User user) {
+        favoriteService.addToFavorites(user.getId(), bookId);
+    }
+
+    @DeleteMapping("/remove/{bookId}")
+    public void removeFavorite(@PathVariable int bookId, @AuthenticationPrincipal User user) {
+        favoriteService.removeFromFavorites(user.getId(), bookId);
+    }
+
 }
