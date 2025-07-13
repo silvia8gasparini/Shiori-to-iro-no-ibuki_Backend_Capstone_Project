@@ -33,7 +33,7 @@ public class DigitalCardService {
         card.setIssuedAt(LocalDate.now());
 
         String year = String.valueOf(LocalDate.now().getYear());
-        String cardNumber = "SHI-" + year + "-" + String.format("%04d", userId);
+        String cardNumber = "REN-" + year + "-" + String.format("%04d", userId);
         card.setCardNumber(cardNumber);
 
         return digitalCardRepository.save(card);
