@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class CartItemDto {
-    @NotNull(message = "L'ID è obbligatorio")
     private Integer bookId;
 
     @Min(value = 1, message = "Inserire almeno 1 elemento")

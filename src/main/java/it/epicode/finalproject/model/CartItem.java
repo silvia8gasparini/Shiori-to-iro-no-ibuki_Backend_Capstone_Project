@@ -1,5 +1,6 @@
 package it.epicode.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -14,6 +15,7 @@ public class CartItem {
     private int id;
 
     @ManyToOne
+    @JsonIgnore
     private Cart cart;
 
     @ManyToOne
@@ -23,4 +25,7 @@ public class CartItem {
 
     private double priceAtSelection;
     // private double princeAtSelection; 🎶Purple rain... purple rain...☔️🎶
+
+    private String bookTitle;
+    private String bookAuthor;
 }

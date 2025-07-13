@@ -1,5 +1,6 @@
 package it.epicode.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.epicode.finalproject.enumeration.Role;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String email;
 
+    @JsonIgnore
     private String password;
     private String avatarUrl;
 

@@ -40,4 +40,14 @@ public class CartItemController {
     public void deleteCartItem(@PathVariable int id) throws NotFoundException {
         cartItemService.deleteCartItem(id);
     }
+
+    @PostMapping("/book/{bookId}")
+    public CartItem addToCartByBookId(@PathVariable int bookId,
+                                      @RequestBody @Valid CartItemDto dto,
+                                      @AuthenticationPrincipal User user) throws NotFoundException {
+        dto.setBookId(bookId);  // Sovrascrive l'eventuale valore nel body
+        return cartItemService.saveCartItemForUser(dto, user.getId());
+    }
+
+
 }
