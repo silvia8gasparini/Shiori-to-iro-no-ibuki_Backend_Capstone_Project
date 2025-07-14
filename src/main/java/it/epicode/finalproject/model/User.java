@@ -28,7 +28,7 @@ public class User implements UserDetails {
     private String password;
     private String avatarUrl;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @OneToOne(mappedBy = "user")

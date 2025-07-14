@@ -32,7 +32,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 "/html/**",
                 "/import/**",
                 "/microseasons/current",
-                "/books/**",
+                "/books/microseason/**",
                 "/microseasons/**",
                 "/colors/**" };
         String path = request.getServletPath();

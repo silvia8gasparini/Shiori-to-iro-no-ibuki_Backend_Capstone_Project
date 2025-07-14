@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,6 +19,7 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("/microseason/{microSeasonId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Book saveBook(@RequestBody @Valid Book book, @PathVariable int microSeasonId) throws NotFoundException {
         return bookService.saveBook(book, microSeasonId);
     }
@@ -33,11 +35,13 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Book updateBook(@PathVariable int id, @RequestBody @Valid Book updatedBook) throws NotFoundException {
         return bookService.updateBook(id, updatedBook);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteBook(@PathVariable int id) throws NotFoundException {
         bookService.deleteBook(id);
     }
