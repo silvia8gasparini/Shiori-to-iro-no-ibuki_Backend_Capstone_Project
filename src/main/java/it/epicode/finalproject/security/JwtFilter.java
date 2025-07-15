@@ -34,7 +34,9 @@ public class JwtFilter extends OncePerRequestFilter {
                 "/microseasons/current",
                 "/books/microseason/**",
                 "/microseasons/**",
-                "/colors/**" };
+                "/colors/**",
+                "/paypal/**"};
+
         String path = request.getServletPath();
         AntPathMatcher matcher = new AntPathMatcher();
 
