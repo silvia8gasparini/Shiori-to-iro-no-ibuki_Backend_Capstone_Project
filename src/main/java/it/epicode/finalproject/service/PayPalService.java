@@ -16,14 +16,12 @@ public class PayPalService {
     private PayPalHttpClient payPalHttpClient;
 
     public String createOrder(Double amount) throws IOException {
-        System.out.println("➡️ Creo ordine PayPal per importo: " + amount);
         OrderRequest orderRequest = new OrderRequest();
         orderRequest.checkoutPaymentIntent("CAPTURE");
 
         AmountWithBreakdown amountWithBreakdown = new AmountWithBreakdown()
                 .currencyCode("EUR")
                 .value(String.format(Locale.US, "%.2f", amount));
-        System.out.println("➡️ Importo formattato: " + amountWithBreakdown.value());
 
         PurchaseUnitRequest purchaseUnit = new PurchaseUnitRequest()
                 .amountWithBreakdown(amountWithBreakdown);
@@ -31,8 +29,8 @@ public class PayPalService {
         orderRequest.purchaseUnits(List.of(purchaseUnit));
 
         ApplicationContext applicationContext = new ApplicationContext()
-                .returnUrl("http://localhost:5173/payment-success")
-                .cancelUrl("http://localhost:5173/payment-cancel")
+                .returnUrl("http://localhost:5173/checkout")
+                .cancelUrl("http://localhost:5173/checkout")
                 .brandName("Shiori to iro no ibuki")
                 .landingPage("BILLING")
                 .userAction("PAY_NOW");
@@ -42,8 +40,6 @@ public class PayPalService {
         OrdersCreateRequest request = new OrdersCreateRequest()
                 .prefer("return=representation")
                 .requestBody(orderRequest);
-
-        System.out.println("➡️ Invio richiesta a PayPal...");
 
         HttpResponse<Order> response = payPalHttpClient.execute(request); // 👈 punto critico
 
