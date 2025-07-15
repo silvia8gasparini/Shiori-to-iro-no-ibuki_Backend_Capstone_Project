@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class PayPalService {
@@ -15,12 +16,14 @@ public class PayPalService {
     private PayPalHttpClient payPalHttpClient;
 
     public String createOrder(Double amount) throws IOException {
+        System.out.println("➡️ Creo ordine PayPal per importo: " + amount);
         OrderRequest orderRequest = new OrderRequest();
         orderRequest.checkoutPaymentIntent("CAPTURE");
 
         AmountWithBreakdown amountWithBreakdown = new AmountWithBreakdown()
                 .currencyCode("EUR")
-                .value(String.format("%.2f", amount));
+                .value(String.format(Locale.US, "%.2f", amount));
+        System.out.println("➡️ Importo formattato: " + amountWithBreakdown.value());
 
         PurchaseUnitRequest purchaseUnit = new PurchaseUnitRequest()
                 .amountWithBreakdown(amountWithBreakdown);
@@ -40,10 +43,15 @@ public class PayPalService {
                 .prefer("return=representation")
                 .requestBody(orderRequest);
 
-        HttpResponse<Order> response = payPalHttpClient.execute(request);
+        System.out.println("➡️ Invio richiesta a PayPal...");
+
+        HttpResponse<Order> response = payPalHttpClient.execute(request); // 👈 punto critico
+
+        System.out.println("✅ Risposta ricevuta, status: " + response.statusCode());
 
         for (LinkDescription link : response.result().links()) {
             if ("approve".equalsIgnoreCase(link.rel())) {
+                System.out.println("✅ URL approvazione trovato: " + link.href());
                 return link.href();
             }
         }

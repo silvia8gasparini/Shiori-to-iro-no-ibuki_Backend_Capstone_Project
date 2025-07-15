@@ -31,6 +31,7 @@ public class SecurityConfig {
                         .requestMatchers("/import/**").permitAll()
                         .requestMatchers("/microseasons/current").permitAll()
                         .requestMatchers("/books/microseason/**").permitAll()
+                        .requestMatchers("/paypal/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/books/**", "/microseasons/**", "/colors/**").permitAll()
                         .anyRequest().authenticated()
                 )
