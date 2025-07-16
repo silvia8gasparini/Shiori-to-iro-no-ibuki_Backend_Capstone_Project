@@ -1,13 +1,20 @@
 package it.epicode.finalproject.controller;
 
+import it.epicode.finalproject.dto.BorrowDto;
+import it.epicode.finalproject.dto.BorrowResponseDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.Borrow;
+import it.epicode.finalproject.model.User;
 import it.epicode.finalproject.service.BorrowService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/borrows")
@@ -16,12 +23,11 @@ public class BorrowController {
     @Autowired
     private BorrowService borrowService;
 
-    @PostMapping("/book/{bookId}/user/{userId}/card/{cardId}")
-    public Borrow saveBorrow(@RequestBody @Valid Borrow borrow,
-                             @PathVariable int bookId,
-                             @PathVariable int userId,
-                             @PathVariable int cardId) throws NotFoundException {
-        return borrowService.saveBorrow(borrow, bookId, userId, cardId);
+    @PostMapping
+    public BorrowResponseDto createBorrow(@RequestBody @Valid BorrowDto borrowDto,
+                                          @AuthenticationPrincipal User user) throws NotFoundException {
+        Borrow saved = borrowService.saveBorrow(borrowDto, user);
+        return borrowService.toDto(saved);
     }
 
     @GetMapping("")

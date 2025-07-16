@@ -1,6 +1,7 @@
 package it.epicode.finalproject.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,12 +18,14 @@ public class DigitalCard {
     private String cardNumber;
     private LocalDate issuedAt;
 
+    @JsonIgnore
     @OneToOne
     private User user;
 
     @OneToMany(mappedBy = "digitalCard")
     private List<Reservation> reservations;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "digitalCard")
     private List<Borrow> borrows;
 }

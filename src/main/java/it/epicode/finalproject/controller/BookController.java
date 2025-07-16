@@ -70,4 +70,9 @@ public class BookController {
     public Page<Book> searchByPriceRange(@RequestParam Double min, @RequestParam Double max, Pageable pageable) {
         return bookService.findByPriceBetween(min, max, pageable);
     }
+
+    @GetMapping("/search")
+    public Page<Book> searchBooks(@RequestParam String q, Pageable pageable) {
+        return bookService.findByTitleOrAuthor(q, pageable);
+    }
 }

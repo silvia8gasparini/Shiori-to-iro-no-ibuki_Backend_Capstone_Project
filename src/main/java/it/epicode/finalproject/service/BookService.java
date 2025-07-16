@@ -76,4 +76,8 @@ public class BookService {
         return bookRepository.findByPriceBetween(min, max, pageable);
     }
 
+    public Page<Book> findByTitleOrAuthor(String query, Pageable pageable) {
+        return bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCase(query, query, pageable);
+    }
+
 }

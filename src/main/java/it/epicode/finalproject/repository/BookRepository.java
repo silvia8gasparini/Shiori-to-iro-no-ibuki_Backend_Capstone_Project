@@ -11,5 +11,6 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     Page<Book> findByAuthorContainingIgnoreCase(String author, Pageable pageable);
     Page<Book> findByAvailability(it.epicode.finalproject.enumeration.Availability availability, Pageable pageable);
     Page<Book> findByPriceBetween(Double min, Double max, Pageable pageable);
+    Page<Book> findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCase(String title, String author, Pageable pageable);
     boolean existsByIsbn(String isbn);
 }

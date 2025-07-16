@@ -40,6 +40,7 @@ public class User implements UserDetails {
     @OneToOne(mappedBy = "user")
     private Cart cart;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Borrow> borrows;
 

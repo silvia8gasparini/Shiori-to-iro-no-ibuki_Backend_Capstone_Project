@@ -17,7 +17,6 @@ public class BorrowDto {
     @NotNull(message = "L'ID del libro è obbligatorio")
     private Integer bookId;
 
-    @NotNull(message = "L'ID dell'utente è obbligatorio")
     private Integer userId;
 
     @NotNull(message = "L'ID della tessera digitale è obbligatorio")

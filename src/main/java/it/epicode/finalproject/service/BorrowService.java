@@ -1,5 +1,7 @@
 package it.epicode.finalproject.service;
 
+import it.epicode.finalproject.dto.BorrowDto;
+import it.epicode.finalproject.dto.BorrowResponseDto;
 import it.epicode.finalproject.exception.NotFoundException;
 import it.epicode.finalproject.model.Book;
 import it.epicode.finalproject.model.Borrow;
@@ -28,21 +30,34 @@ public class BorrowService {
     @Autowired
     private DigitalCardRepository digitalCardRepository;
 
-    public Borrow saveBorrow(Borrow borrow, int bookId, int userId, int cardId) throws NotFoundException {
-        Book book = bookRepository.findById(bookId)
-                .orElseThrow(() -> new NotFoundException("Book not found with id: " + bookId));
+    public Borrow saveBorrow(BorrowDto dto, User user) throws NotFoundException {
+        Book book = bookRepository.findById(dto.getBookId())
+                .orElseThrow(() -> new NotFoundException("Book not found with id: " + dto.getBookId()));
 
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundException("User not found with id: " + userId));
+        DigitalCard card = digitalCardRepository.findById(dto.getDigitalCardId())
+                .orElseThrow(() -> new NotFoundException("Digital card not found with id: " + dto.getDigitalCardId()));
 
-        DigitalCard card = digitalCardRepository.findById(cardId)
-                .orElseThrow(() -> new NotFoundException("DigitalCard not found with id: " + cardId));
-
+        Borrow borrow = new Borrow();
+        borrow.setStartDate(dto.getStartDate());
+        borrow.setDueDate(dto.getDueDate());
+        borrow.setReturnDate(dto.getReturnDate());
+        borrow.setReturned(false);
         borrow.setBook(book);
         borrow.setUser(user);
         borrow.setDigitalCard(card);
 
         return borrowRepository.save(borrow);
+    }
+
+    public BorrowResponseDto toDto(Borrow borrow) {
+        BorrowResponseDto borrowResponseDto = new BorrowResponseDto();
+        borrowResponseDto.setId(borrow.getId());
+        borrowResponseDto.setStartDate(borrow.getStartDate());
+        borrowResponseDto.setDueDate(borrow.getDueDate());
+        borrowResponseDto.setReturned(borrow.isReturned());
+        borrowResponseDto.setBookTitle(borrow.getBook().getTitle());
+        borrowResponseDto.setUserName(borrow.getUser().getName());
+        return borrowResponseDto;
     }
 
     public Borrow getBorrowById(int id) throws NotFoundException {

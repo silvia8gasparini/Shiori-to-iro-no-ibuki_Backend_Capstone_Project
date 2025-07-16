@@ -33,6 +33,8 @@ public class SecurityConfig {
                         .requestMatchers("/books/microseason/**").permitAll()
                         .requestMatchers("/paypal/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/books/**", "/microseasons/**", "/colors/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/borrows/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/borrows/**").authenticated()
                         .anyRequest().authenticated()
                 )
 
