@@ -64,7 +64,8 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
-                "https://shiori-to-iro-no-ibuki-frontend-capstone-project-pgaiicn43.vercel.app",
+                "https://shiori-to-iro-no-ibuki-frontend-cap.vercel.app",
+                "https://shiori-to-iro-no-ibuki-frontend-capst-silvias-projects-68983241.vercel.app",
                 "https://desperate-hillary-silviagasparini-906caa83.koyeb.app"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
