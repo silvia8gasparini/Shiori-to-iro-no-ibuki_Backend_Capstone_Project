@@ -43,7 +43,7 @@ public class ImportService {
 
         try (
                 InputStreamReader reader = new InputStreamReader(
-                        getClass().getClassLoader().getResourceAsStream("colors.csv"),
+                        new BOMInputStream(getClass().getClassLoader().getResourceAsStream("colors.csv")),
                         StandardCharsets.UTF_8
                 );
                 CSVParser parser = new CSVParser(reader, format)
@@ -105,6 +105,7 @@ public class ImportService {
             System.err.println("Errore durante la lettura del file CSV: " + e.getMessage());
         }
     }
+
 
 
     public void importaLibriDaCsv() {
