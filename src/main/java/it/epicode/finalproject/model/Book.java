@@ -21,7 +21,7 @@ public class Book {
     private String publisher;
     private String isbn;
     private double price;
-    @Column(length = 2000)
+    @Column(length = 8000)
     private String description;
     private String imageUrl;
 
