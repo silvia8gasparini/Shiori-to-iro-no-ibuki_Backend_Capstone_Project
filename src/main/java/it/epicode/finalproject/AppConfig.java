@@ -38,8 +38,12 @@ public class AppConfig {
             mailSender.setPassword(password);
 
             Properties props = mailSender.getJavaMailProperties();
+            props.put("mail.transport.protocol", protocol);
             props.put("mail.smtp.auth", auth);
             props.put("mail.smtp.starttls.enable", starttls);
+            props.put("mail.debug", debug);
+            props.put("mail.smtp.ssl.enable", ssl);
+            props.put("mail.smtp.ssl.trust", host);
 
             return mailSender;
         }
