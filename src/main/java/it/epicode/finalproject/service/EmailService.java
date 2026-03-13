@@ -12,7 +12,7 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    @Value("${gmail.from:no-reply@ibuki.com}")
+    @Value("${gmail.from}")
     private String from;
 
     public void send(String to, String subject, String body) {
