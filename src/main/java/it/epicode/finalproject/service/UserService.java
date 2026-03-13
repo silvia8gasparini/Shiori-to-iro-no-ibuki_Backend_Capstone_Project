@@ -58,7 +58,7 @@ public class UserService {
         emailService.send(
                 savedUser.getEmail(),
                 "Benvenutə da Ibuki! 🌸",
-                "おはようございます " + savedUser.getName() + ", La tua registrazione è andata a buon fine! Grazie per esserti unito a noi."
+                "こんにちは " + savedUser.getName() + ", La tua registrazione è andata a buon fine! Grazie per esserti unitə a noi."
         );
         return savedUser;
     }
